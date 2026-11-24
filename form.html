@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>{{ titulo }}</h2>
+<form method="post">
+{% for campo, rotulo, tipo in [('nome','Nome','text'),('cpf','CPF','text'),('email','E-mail','email'),('telefone','Telefone','text'),('data_nascimento','Data de nascimento','date')] %}
+<label>{{ rotulo }}<br><input type="{{ tipo }}" name="{{ campo }}" value="{{ dados.get(campo, '') }}"></label>
+{% if erros.get(campo) %}<div class="erro">{{ erros[campo] }}</div>{% endif %}
+{% endfor %}
+<button>Salvar</button> <a href="{{ url_for('pessoas.listar') }}">Cancelar</a>
+</form>
+{% endblock %}

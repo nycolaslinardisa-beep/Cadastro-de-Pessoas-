@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Cadastro de Pessoas</title>
+<style>
+body{font-family:sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem}
+table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #ccc;padding:6px;text-align:left}
+.erro{color:#b00020;font-size:.85rem}.ok{background:#e6f4ea;padding:8px;margin:8px 0}
+label{display:block;margin-top:10px}input{padding:6px;width:100%;max-width:360px}
+button,.btn{padding:6px 12px;margin-top:10px;cursor:pointer}
+</style></head><body>
+<h1><a href="{{ url_for('pessoas.listar') }}" style="text-decoration:none;color:inherit">Cadastro de Pessoas</a></h1>
+{% for m in get_flashed_messages() %}<div class="ok">{{ m }}</div>{% endfor %}
+{% block conteudo %}{% endblock %}
+</body></html>
